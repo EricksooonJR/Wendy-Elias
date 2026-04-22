@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación de Boda | Valeria & Sebastián</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Pantalla de apertura -->
+    <div class="intro" id="intro">
+      <div class="intro__content">
+        <p class="intro__label">Desliza hacia arriba</p>
+        <h1>Wendy <span>&</span> Elías</h1>
+        <p class="intro__date">11 de julio de 2026</p>
+      </div>
+
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Audio opcional -->
+    <button class="music-btn" id="musicBtn" aria-label="Reproducir música">
+      ♪
+    </button>
+    <audio id="bgMusic" loop>
+      <!-- Reemplaza por tu archivo -->
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <main class="site" id="site">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container">
+          <p class="tag">Nuestra Boda</p>
+          <h2 class="names">Wendy <span>&</span> Elías</h2>
+          <p class="hero__text">
+            Con la bendición de Dios y de nuestras familias
+          </p>
+          <p class="hero__date">11 de julio de 2026 · FALTA HORA</p>
+        </div>
+      </section>
+
+      <!-- Cuenta regresiva -->
+      <section class="countdown section">
+        <div class="container">
+          <h3 class="section-title">Faltan</h3>
+          <div class="countdown__grid">
+            <div class="countdown__item">
+              <span id="days">00</span>
+              <small>Días</small>
+            </div>
+            <div class="countdown__item">
+              <span id="hours">00</span>
+              <small>Horas</small>
+            </div>
+            <div class="countdown__item">
+              <span id="minutes">00</span>
+              <small>Minutos</small>
+            </div>
+            <div class="countdown__item">
+              <span id="seconds">00</span>
+              <small>Segundos</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Frase -->
+      <section class="quote section section--soft">
+        <div class="container">
+          <p class="quote__text">
+            “Hoy comienza para nosotros el mejor viaje de nuestras vidas.”
+          </p>
+        </div>
+      </section>
+
+      <!-- Itinerario -->
+      <section class="timeline section">
+        <div class="container">
+          <h3 class="section-title">Itinerario</h3>
+
+          <div class="timeline__list">
+            <article class="timeline__item">
+              <div class="timeline__hour">5:00 PM</div>
+              <div class="timeline__content">
+                <h4>Ceremonia Religiosa</h4>
+                <p>Capilla Cristo Rey</p>
+              </div>
+            </article>
+
+            <article class="timeline__item">
+              <div class="timeline__hour">6:30 PM</div>
+              <div class="timeline__content">
+                <h4>Recepción</h4>
+                <p>NOMBRE DEL LUGAR</p>
+              </div>
+            </article>
+
+            <article class="timeline__item">
+              <div class="timeline__hour">8:00 PM</div>
+              <div class="timeline__content">
+                <h4>Cena</h4>
+                <p>Brindemos juntos por el amor</p>
+              </div>
+            </article>
+
+            <article class="timeline__item">
+              <div class="timeline__hour">9:30 PM</div>
+              <div class="timeline__content">
+                <h4>Primer Baile</h4>
+                <p>Y que siga la fiesta</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galería -->
+      <section class="gallery section section--soft" id="galeria">
+        <div class="container">
+          <h3 class="section-title">Galería</h3>
+
+          <div class="polaroid-gallery">
+            <button
+              class="gallery-nav gallery-nav--left"
+              id="galleryPrev"
+              aria-label="Foto anterior"
+            >
+              &#10094;
+            </button>
+
+            <div class="polaroid-stack" id="polaroidStack">
+              <div class="polaroid-card active" data-index="0">
+                <img src="img/foto1.jpg" alt="Foto 1" />
+                <p>Nuestro comienzo</p>
+              </div>
+
+              <div class="polaroid-card" data-index="1">
+                <img src="img/foto2.jpg" alt="Foto 2" />
+                <p>Un viaje especial</p>
+              </div>
+
+              <div class="polaroid-card" data-index="2">
+                <img src="img/foto3.jpg" alt="Foto 3" />
+                <p>Momentos inolvidables</p>
+              </div>
+
+              <div class="polaroid-card" data-index="3">
+                <img src="img/foto4.jpg" alt="Foto 4" />
+                <p>Siempre juntos</p>
+              </div>
+
+              <div class="polaroid-card" data-index="4">
+                <img src="img/foto5.jpg" alt="Foto 5" />
+                <p>El gran sí</p>
+              </div>
+            </div>
+
+            <button
+              class="gallery-nav gallery-nav--right"
+              id="galleryNext"
+              aria-label="Foto siguiente"
+            >
+              &#10095;
+            </button>
+          </div>
+
+          <div class="gallery-actions">
+            <button class="btn" id="openGalleryModal">Galería Completa</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal galería -->
+      <div class="gallery-modal" id="galleryModal">
+        <button
+          class="gallery-modal__close"
+          id="closeGalleryModal"
+          aria-label="Cerrar galería"
+        >
+          &times;
+        </button>
+
+        <button
+          class="gallery-modal__nav gallery-modal__nav--left"
+          id="modalPrev"
+          aria-label="Anterior"
+        >
+          &#10094;
+        </button>
+
+        <div class="gallery-modal__content">
+          <img id="modalImage" src="" alt="Foto ampliada" />
+          <p id="modalCaption"></p>
+          <div class="gallery-thumbs" id="galleryThumbs"></div>
+        </div>
+
+        <button
+          class="gallery-modal__nav gallery-modal__nav--right"
+          id="modalNext"
+          aria-label="Siguiente"
+        >
+          &#10095;
+        </button>
+      </div>
+
+      <!-- Dress code -->
+      <section class="dresscode section">
+        <div class="container">
+          <h3 class="section-title">Dress Code</h3>
+          <div class="card">
+            <p class="card__big">Formal / Etiqueta</p>
+            <p>Queremos verte espectacular en este día tan especial.</p>
+            <p class="note">Sugerencia: tonos neutros, pastel o elegantes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ubicaciones -->
+      <section class="locations section section--soft">
+        <div class="container">
+          <h3 class="section-title">Ubicaciones</h3>
+
+          <div class="location-card">
+            <h4>Ceremonia</h4>
+            <p>Capilla de Cristo Rey</p>
+            <p>Calle 7 poniente #176, Santiago Miahuatlán</p>
+            <a
+              class="btn"
+              href="https://maps.app.goo.gl/t54xhMU2NNu3V4Kd6"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Abrir en Google Maps</a
+            >
+          </div>
+
+          <div class="location-card">
+            <h4>Recepción</h4>
+            <p>NOMBRE DEL LUGAR</p>
+            <p>Calle 5 norte # 701 colonia Guadalupe, Santiago Miahuatlán</p>
+            <a
+              class="btn"
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Abrir en Google Maps</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Mesa de regalos -->
+      <section class="gifts section">
+        <div class="container">
+          <h3 class="section-title">Mesa de Regalos</h3>
+          <div class="card">
+            <p>
+              Su presencia es nuestro mejor regalo, pero si desean tener un
+              detalle con nosotros, aquí les dejamos una opción.
+            </p>
+            <a class="btn" href="#" target="_blank" rel="noopener noreferrer"
+              >Ver mesa de regalos</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Menciones especiales -->
+      <section class="mentions section section--soft">
+        <div class="container">
+          <h3 class="section-title">Con amor de</h3>
+          <div class="mentions__grid">
+            <div class="mention">
+              <span>Padres de la novia</span>
+              <strong
+                >Valentina Mariela Treviño González & Marino Javier Cruz
+                Robledo</strong
+              >
+            </div>
+            <div class="mention">
+              <span>Padres del novio</span>
+              <strong
+                >María Cecilia Montes García & Rodrigo Rafael Hernández
+                Flores</strong
+              >
+            </div>
+            <div class="mention">
+              <span>Padrinos</span>
+              <strong>Alondra Montes Hernández & Omar Vázquez Vargas</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RSVP -->
+      <section class="rsvp section">
+        <div class="container">
+          <h3 class="section-title">Confirma tu asistencia</h3>
+          <p class="rsvp__text">Será un honor contar con tu presencia.</p>
+          <a
+            class="btn btn--dark"
+            href="https://wa.me/522381547385?text=Hola%2C%20con%20mucho%20gusto%20confirmo%20mi%20asistencia%20a%20su%20boda.%20Será%20un%20honor%20acompañarlos%20en%20este%20día%20tan%20especial."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Confirmar por WhatsApp
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>Hecho con amor para un día inolvidable</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
