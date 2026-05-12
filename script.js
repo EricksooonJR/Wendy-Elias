@@ -462,3 +462,39 @@ window.addEventListener("DOMContentLoaded", () => {
   }, 3000);
 
 });
+
+/* =========================
+   SWIPE GALERÍA MOBILE
+========================= */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const polaroidStack = document.getElementById("polaroidStack");
+
+if (polaroidStack) {
+
+  polaroidStack.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  polaroidStack.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGallerySwipe();
+  });
+
+  function handleGallerySwipe() {
+
+    const swipeDistance = touchEndX - touchStartX;
+
+    // Deslizar izquierda → siguiente
+    if (swipeDistance < -50) {
+      document.getElementById("galleryNext")?.click();
+    }
+
+    // Deslizar derecha → anterior
+    if (swipeDistance > 50) {
+      document.getElementById("galleryPrev")?.click();
+    }
+  }
+}
